@@ -83,6 +83,9 @@ public class Game {
     }
 
     public static char hasWon(char[][] board) {
+        for(int x = 0; x < 3; x++) {
+            if(board[x][0] == board[x][1] &&)
+        }
         return ' ';
     }
 }
