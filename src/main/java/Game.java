@@ -4,12 +4,12 @@ public class Game {
 
     public static void main(String[] args) {
 
-        char[][] board = new char[5][5];
+        char[][] board = new char[3][3];
         String pl1 = "Player1";
         String pl2 = "Player2";
 
-        for(int i = 0; i < 5; i++) {
-            for(int j = 0; j < 5; j++) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 board[i][j] = '-';
             }
         }
@@ -22,18 +22,18 @@ public class Game {
         boolean player = true;
         boolean end = false;
 
-        while(!end) {
+        while (!end) {
 
             drawBoard(board);
 
-            if(player) {
+            if (player) {
                 System.out.println(pl1 + "hraje (x)");
             } else {
                 System.out.println(pl2 + "hraje (y)");
             }
 
             char sign = '-';
-            if(player) {
+            if (player) {
                 sign = 'x';
             } else {
                 sign = 'o';
@@ -42,15 +42,15 @@ public class Game {
             int row = 0;
             int col = 0;
 
-            while(true) {
-                System.out.print("Napis radek do ktereho chces zahrat (0 az 4)");
+            while (true) {
+                System.out.print("Napis radek do ktereho chces zahrat (0 az 2)");
                 row = scanner.nextInt();
-                System.out.print("Napis sloupec v poli do ktereho chces zahrat (0 az 4)");
+                System.out.print("Napis sloupec v poli do ktereho chces zahrat (0 az 2)");
                 col = scanner.nextInt();
 
-                if(row > 4 || col > 4 || row < 0 || col < 0) {
-                    System.out.println("Koupil bych si slabikar a znova bych se mrknul na ctení, protoze jsem psal 0 az 4!");
-                } else if(board[row][col] != '-') {
+                if (row > 2 || col > 2 || row < 0 || col < 0) {
+                    System.out.println("Koupil bych si slabikar a znova bych se mrknul na ctení, protoze jsem psal 0 az 2!");
+                } else if (board[row][col] != '-') {
                     System.out.println("Sorry, tohle policko uz je zabrany.");
                 } else {
                     break;
@@ -59,10 +59,10 @@ public class Game {
 
             board[row][col] = sign;
 
-            if(hasWon(board) == 'x') {
+            if (hasWon(board) == 'x') {
                 System.out.println(pl1 + "hezky chlape, vyhral jsi v piskvorkach.");
                 end = true;
-            } else if(hasWon(board) == 'o') {
+            } else if (hasWon(board) == 'o') {
                 System.out.println(pl2 + "hezky chlape, vyhral jsi v piskvorkach.");
                 end = true;
             } else {
@@ -72,19 +72,24 @@ public class Game {
 
         drawBoard(board);
     }
+
     public static void drawBoard(char[][] board) {
         System.out.println("Board:");
-        for(int i = 0; i < 5; i++) {
-            for(int j = 0; j < 5; j++) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 System.out.print(board[i][j]);
             }
             System.out.println("");
         }
     }
 
+    //[1][1](střed)
     public static char hasWon(char[][] board) {
-        for(int x = 0; x < 3; x++) {
-            if(board[x][0] == board[x][1] &&)
+        for (int x = 0; x < 3; x++) {
+            if (board[x][0] == board[x][2] && board[1][x] == board[2][x] && board[0][x] != '-') {
+                return board[0][x];
+            }
+            //dodelat vyhru v radku a sikmo
         }
         return ' ';
     }
