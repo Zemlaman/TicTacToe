@@ -50,7 +50,7 @@ public class Game {
 
                 if (row > 2 || col > 2 || row < 0 || col < 0) {
                     System.out.println("Koupil bych si slabikar a znova bych se mrknul na ctení, protoze jsem psal 0 az 2!");
-                } else if (board[row][col] != '-') {
+                } else if (board[row][col] == 'x' || board[row][col] == 'o') {
                     System.out.println("Sorry, tohle policko uz je zabrany.");
                 } else {
                     break;
