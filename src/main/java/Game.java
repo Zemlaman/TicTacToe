@@ -24,7 +24,7 @@ public class Game {
 
         while (!end) {
 
-            drawBoard(board);
+            printBoard(board);
 
             if (player) {
                 System.out.println(pl1 + "hraje (x)");
@@ -70,10 +70,10 @@ public class Game {
             }
         }
 
-        drawBoard(board);
+        printBoard(board);
     }
 
-    public static void drawBoard(char[][] board) {
+    public static void printBoard(char[][] board) {
         System.out.println("Board:");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
