@@ -91,9 +91,9 @@ public class Game {
             }
         }
         //sloupec
-        for (int j = 0; j < 3; j++) {
-            if (board[0][j] == board[1][j] && board[1][j] == board[2][j] && board[0][j] != '-') {
-                return board[0][j];
+        for (int x = 0; x < 3; x++) {
+            if (board[0][x] == board[1][x] && board[1][x] == board[2][x] && board[0][x] != '-') {
+                return board[0][x];
             }
         }
         //radek
